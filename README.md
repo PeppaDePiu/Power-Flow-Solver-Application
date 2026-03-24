@@ -1,21 +1,22 @@
-<<<<<<< HEAD
-# gauss_seidel_nr
+# Power Flow Solver Application
 
-A new Flutter project.
+A Flutter-based educational power flow solver designed to help students understand power flow analysis using Gauss-Seidel and Newton-Raphson methods.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Gauss-Seidel 2-bus solver
+- Gauss-Seidel 3-bus solver
+- Newton-Raphson 2-bus solver
+- Step-by-step mathematical workings
+- Educational user interface for power system learning
+- Firebase web deployment support
 
-A few resources to get you started if this is your first Flutter project:
+## Purpose
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+This project was developed to provide a more interactive and educational alternative for learning power flow analysis, especially for students studying power engineering.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-=======
-# Power-Flow-Solver-Application
-Created a power flow solver to help students who are specializing in power engineering to better understand power flow problems using Gauss-Seidel and Newton-Raphson techniques for 2-Bus and 3-Bus
->>>>>>> 8fc416e49756e76fb828ccc5a706ba952353695e
+## Tech Stack
+
+- Flutter
+- Dart
+- Firebase Hosting
