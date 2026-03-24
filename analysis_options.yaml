@@ -1,0 +1,15 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    non_constant_identifier_names: false
+    curly_braces_in_flow_control_structures: false
+    prefer_interpolation_to_compose_strings: false
+    library_private_types_in_public_api: false
+
+analyzer:
+  errors:
+    dead_code: ignore
+    deprecated_member_use: ignore
+    empty_statements: ignore
+    unused_import: ignore

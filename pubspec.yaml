@@ -1,0 +1,24 @@
+name: powerflow_app
+description: Power-flow study app for 2-bus and 3-bus systems.
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.13.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_math_fork: ^0.7.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/diagrams/2bus_pi_model.png
+    - assets/diagrams/3bus_model.png
