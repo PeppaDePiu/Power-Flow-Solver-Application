@@ -2059,7 +2059,7 @@ r'=' + show(I12_sum) + r'.',
 r'',
 
 // Compute I21 (Bus 2 → line)  
-r'\underline{\textbf{Compute }\vec I_{21}\textbf{ (Bus 2 }\rightarrow\textbf{ Bus 2)}}',
+r'\underline{\textbf{Compute }\vec I_{21}\textbf{ (Bus 2 }\rightarrow\textbf{ Bus 1)}}',
 r'1)\ \Delta \vec V_{21}=\vec V_2^{(\text{final})}-\vec V_1'
 r'=\big(' + rect(r.V2final) + r'\big)-\big(' + rect(r.V1) + r'\big)'
 r'=' + rect(V2mV1) + r'=' + polar(V2mV1) + r'.',
