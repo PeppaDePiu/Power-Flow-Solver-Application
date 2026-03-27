@@ -2058,7 +2058,11 @@ r'=\big(' + rect(I12_series) + r'\big)+\big(' + rect(I12_shunt) + r'\big)'
 r'=' + show(I12_sum) + r'.',
 r'',
 
+<<<<<<< HEAD
 // Compute I21 (Bus 2 → Bus 1)  
+=======
+// Compute I21 (Bus 2 → line)  
+>>>>>>> aaff9a661d820fe35b9d7ec0f3fb9a8305433056
 r'\underline{\textbf{Compute }\vec I_{21}\textbf{ (Bus 2 }\rightarrow\textbf{ Bus 1)}}',
 r'1)\ \Delta \vec V_{21}=\vec V_2^{(\text{final})}-\vec V_1'
 r'=\big(' + rect(r.V2final) + r'\big)-\big(' + rect(r.V1) + r'\big)'

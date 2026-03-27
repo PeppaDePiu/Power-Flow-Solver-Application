@@ -1,4 +1,4 @@
-# Power Flow Solver Application
+# Power Flow Solver 
 
 A Flutter-based educational power flow solver designed to help students understand power flow analysis using Gauss-Seidel and Newton-Raphson methods.
 
