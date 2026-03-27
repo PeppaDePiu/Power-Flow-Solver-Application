@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
 
-import '../domain/complex.dart';
-import '../domain/powerflow_model_gs3.dart';
-import '../domain/powerflow_solver_gs3.dart';
-import '../utils/format.dart';
-import '../widgets/latex_blocks.dart';
-import '../widgets/ui_helpers.dart';
+import '/domain/complex.dart';
+import '/domain/powerflow_model_gs3.dart';
+import '/domain/powerflow_solver_gs3.dart';
+import '/utils/format.dart';
+import '/widgets/latex_blocks.dart';
+import '/widgets/ui_helpers.dart';
 
 class SolverScreenGS3Bus extends StatefulWidget {
 const SolverScreenGS3Bus({super.key});

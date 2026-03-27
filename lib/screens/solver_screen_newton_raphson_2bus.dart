@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_math_fork/flutter_math.dart';
 
-import '../domain/complex.dart';
-import '../domain/powerflow_model_nr2.dart';
-import '../domain/powerflow_solver_nr2.dart';
-import '../utils/format.dart';
-import '../widgets/latex_blocks.dart';
-import '../widgets/ui_helpers.dart';
+import '/domain/complex.dart';
+import '/domain/powerflow_model_nr2.dart';
+import '/domain/powerflow_solver_nr2.dart';
+import '/utils/format.dart';
+import '/widgets/latex_blocks.dart';
+import '/widgets/ui_helpers.dart';
 
 enum DisplayMode { rect, polar, both }
 
@@ -2290,7 +2290,7 @@ r'\vec V_1=' + show(r.V1) + r',\quad \vec V_2^{(\text{final})}=' + show(r.V2fina
 r'\vec y_{12}=' + show(r.y12Series) + r',\quad \vec y_p=' + show(r.yShunt) + r'.',
 r'',
 
-// Compute I12 (Bus 1 → line)
+// Compute I12 (Bus 1 → Bus 2)
 r'\underline{\textbf{Compute }\vec I_{12}\textbf{ (Bus 1 }\rightarrow\textbf{ Bus 2)}}',
 r'1)\ \Delta \vec V_{12}=\vec V_1-\vec V_2^{(\text{final})}'
 r'=\big(' + rect(r.V1) + r'\big)-\big(' + rect(r.V2final) + r'\big)'
@@ -2309,7 +2309,7 @@ r'=\big(' + rect(I12_series) + r'\big)+\big(' + rect(I12_shunt) + r'\big)'
 r'=' + show(I12_sum) + r'.',
 r'',
 
-// Compute I21 (Bus 2 → line)
+// Compute I21 (Bus 2 → Bus 1)
 r'\underline{\textbf{Compute }\vec I_{21}\textbf{ (Bus 2 }\rightarrow\textbf{ Bus 1)}}',
 r'1)\ \Delta \vec V_{21}=\vec V_2^{(\text{final})}-\vec V_1'
 r'=\big(' + rect(r.V2final) + r'\big)-\big(' + rect(r.V1) + r'\big)'

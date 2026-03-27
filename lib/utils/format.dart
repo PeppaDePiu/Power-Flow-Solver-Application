@@ -1,5 +1,5 @@
 import 'dart:math' as math;
-import '../domain/complex.dart';
+import '/domain/complex.dart';
 
 /// Format a number with significant figures
 String sig(num x, [int s = 4]) {
