@@ -2258,6 +2258,7 @@ latexLeft([
 r'\textbf{Sometimes Exam would give }\vec S_{d1}\textbf{ or }\vec S_{g1}\textbf{ and ask for the other (work backwards):}',
 r'\text{If }\vec S_{d1}\text{ is given: }\ \vec S_{g1}=\vec S_1+\vec S_{d1}.',
 r'\text{If }\vec S_{g1}\text{ is given: }\ \vec S_{d1}=\vec S_{g1}-\vec S_1.',
+r'\text{If }\vec S_{d1}\text{ is not given: }\ \vec S_{g1}=\vec S_1=\vec S_{12}.',
 ], size: 16),
 ),
 ],
