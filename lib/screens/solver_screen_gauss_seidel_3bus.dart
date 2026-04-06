@@ -282,12 +282,6 @@ bool _anyEmpty() {
 final all = <TextEditingController>[
 _sBaseCtrl,
 _vBaseCtrl,
-_r12Ctrl,
-_x12Ctrl,
-_r13Ctrl,
-_x13Ctrl,
-_r23Ctrl,
-_x23Ctrl,
 _v1MagCtrl,
 _d1Ctrl,
 _pg1Ctrl,
@@ -617,9 +611,46 @@ final x23 = sNum(_x23Ctrl, 0.0);
 
 final unitZ = _lineDataInPu ? r'\ \text{pu}' : r'\ \Omega';
 
-final z12Latex = r'\vec z_{12}=' + s(r12) + r'+j' + s(x12) + unitZ;
-final z13Latex = r'\vec z_{13}=' + s(r13) + r'+j' + s(x13) + unitZ;
-final z23Latex = r'\vec z_{23}=' + s(r23) + r'+j' + s(x23) + unitZ;
+// detect blank branches from raw text input
+final noLine12 = _r12Ctrl.text.trim().isEmpty && _x12Ctrl.text.trim().isEmpty;
+final noLine13 = _r13Ctrl.text.trim().isEmpty && _x13Ctrl.text.trim().isEmpty;
+final noLine23 = _r23Ctrl.text.trim().isEmpty && _x23Ctrl.text.trim().isEmpty;
+
+String zLatex({
+  required String sub,
+  required double r,
+  required double x,
+  required bool noLine,
+}) {
+  if (noLine) {
+    return r'\vec z_{' + sub + r'}=\infty';
+  }
+  return r'\vec z_{' + sub + r'}=' + s(r) + r'+j' + s(x) + unitZ;
+}
+
+final z12Latex = zLatex(sub: '12', r: r12, x: x12, noLine: noLine12);
+final z13Latex = zLatex(sub: '13', r: r13, x: x13, noLine: noLine13);
+final z23Latex = zLatex(sub: '23', r: r23, x: x23, noLine: noLine23);
+
+String cLatex(TextEditingController reCtrl, TextEditingController imCtrl) {
+  final re = sNum(reCtrl, 0.0);
+  final im = sNum(imCtrl, 0.0);
+  final sign = im >= 0 ? r'+' : r'-';
+  return s(re) + sign + r'j' + s(im.abs());
+}
+
+final yBusDiagramLatex = r'\vec Y_{\text{bus}}='
+    r'\begin{bmatrix}'
+    + cLatex(_y11ReCtrl, _y11ImCtrl) + r' & '
+    + cLatex(_y12ReCtrl, _y12ImCtrl) + r' & '
+    + cLatex(_y13ReCtrl, _y13ImCtrl) + r' \\ '
+    + cLatex(_y12ReCtrl, _y12ImCtrl) + r' & '
+    + cLatex(_y22ReCtrl, _y22ImCtrl) + r' & '
+    + cLatex(_y23ReCtrl, _y23ImCtrl) + r' \\ '
+    + cLatex(_y13ReCtrl, _y13ImCtrl) + r' & '
+    + cLatex(_y23ReCtrl, _y23ImCtrl) + r' & '
+    + cLatex(_y33ReCtrl, _y33ImCtrl)
+    + r'\end{bmatrix}';
 
 // voltages
 final v1m = sNum(_v1MagCtrl, 1.0);
@@ -735,10 +766,14 @@ return Stack(
       ),
     ),
 
-    // Line impedances
-    _diagLabelFrac(rect, x: 0.38, y: 0.06, latex: z12Latex, size: 14.5),
-    _diagLabelFrac(rect, x: 0.08, y: 0.53, latex: z13Latex, size: 14.5),
-    _diagLabelFrac(rect, x: 0.67, y: 0.53, latex: z23Latex, size: 14.5),
+    // Line impedances or Y-Bus Matrix
+    if (!_useDirectYbus) ...[
+  _diagLabelFrac(rect, x: 0.38, y: 0.06, latex: z12Latex, size: 14.5),
+  _diagLabelFrac(rect, x: 0.08, y: 0.53, latex: z13Latex, size: 14.5),
+  _diagLabelFrac(rect, x: 0.67, y: 0.53, latex: z23Latex, size: 14.5),
+  ] else ...[
+  _diagLabelFrac(rect, x: 0.80, y: 0.62, latex: yBusDiagramLatex, size: 15.0),
+  ],
 
     // Voltages
     _diagLabelFrac(rect, x: -0.14, y: 0.16, latex: v1Latex, size: 14.5),
@@ -754,6 +789,7 @@ return Stack(
 
     _diagLabelFrac(rect, x: 0.14, y: 0.80, latex: sg3Latex, size: 13.2),
     _diagLabelFrac(rect, x: 0.50, y: 0.87, latex: sd3Latex, size: 13.2),
+    
 
     // Q-limit labels only for PV buses
     if (q2Lim != null) _diagLabelFrac(rect, x: 0.95, y: 0.27, latex: q2Lim!, size: 12.5),
@@ -1272,8 +1308,7 @@ r'\text{Mutual/Transfer Admittance }(\vec Y_{ij}):\ \text{off-diagonal elements.
 const SizedBox(height: 10),
 warnBox(
 latexLeft([
-r'\text{If no line connects }i\text{ and }j,\ \vec y_{ij}=0\Rightarrow \vec Y_{ij}=\vec Y_{ji}=0.',
-], size: 16),
+r'\text{If no line connects }i\text{ and }j,\ \vec z_{ij}=\infty,\ \vec y_{ij}=0\Rightarrow \vec Y_{ij}=\vec Y_{ji}=0.',], size: 16),
 ),
 const SizedBox(height: 12),
 latexBlock([r'\textbf{Given (your inputs)}'], size: 17),

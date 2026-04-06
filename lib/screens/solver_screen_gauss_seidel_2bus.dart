@@ -217,8 +217,6 @@ bool _anyEmpty() {
 for (final c in [
 _sBaseCtrl,
 _vBaseCtrl,
-_r12Ctrl,
-_x12Ctrl,
 _ypCtrl,
 _v1MagCtrl,
 _d1Ctrl,
@@ -665,9 +663,15 @@ final z12Latex = _lineDataInPu
 ? r'\vec z_{12}=' + s(r12) + r'+j' + s(x12) + r'\ \text{pu}'
 : r'\vec z_{12}=' + s(r12) + r'+j' + s(x12) + r'\ \Omega';
 
-final ypLatex = _lineDataInPu
+final ypLatexpu = _lineDataInPu
 ? r'\vec y_p=j' + s(yp) + r'\ \text{pu}'
 : r'\vec y_p=j' + s(yp) + r'\ \text{S/ph}';
+
+final ypLatexactual = _lineDataInPu
+? r'\vec y_p=' + s(yp) + r'\ \text{pu}'
+: r'\vec y_p=' + s(yp) + r'\ \text{S/ph}';
+
+final ypDiagramLatex = _lineDataInPu ? ypLatexpu : ypLatexactual;
 
 // Bus 1 voltage + powers
 final v1Latex = r'\vec V_1=' + s(v1mag) + r'\angle ' + s(d1deg) + r'^\circ';
@@ -735,7 +739,7 @@ builder: (context, constraints) {
 
 // Line labels
 _diagLabelFrac(rect, x: 0.34, y: 0.25, latex: z12Latex, size: 16),
-_diagLabelFrac(rect, x: 0.33, y: 0.44, latex: ypLatex, size: 15),
+_diagLabelFrac(rect, x: 0.33, y: 0.44, latex: ypDiagramLatex, size: 15),
 
 // Bus 1 labels
 _diagLabelFrac(rect, x: -0.14, y: 0.34, latex: v1Latex, size: 15),
@@ -1470,7 +1474,7 @@ const SizedBox(height: 10),
 
 warnBox(
 latexLeft([
-r'\text{If no line connects }i\text{ and }j,\ \vec y_{ij}=0\Rightarrow \vec Y_{ij}=\vec Y_{ji}=0.',
+r'\text{If no line connects }i\text{ and }j,\ \vec z_{ij}=\infty,\ \vec y_{ij}=0\Rightarrow \vec Y_{ij}=\vec Y_{ji}=0.',
 ], size: 16),
 ),
 const SizedBox(height: 12),
