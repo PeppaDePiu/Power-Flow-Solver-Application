@@ -772,7 +772,7 @@ return Stack(
   _diagLabelFrac(rect, x: 0.08, y: 0.53, latex: z13Latex, size: 14.5),
   _diagLabelFrac(rect, x: 0.67, y: 0.53, latex: z23Latex, size: 14.5),
   ] else ...[
-  _diagLabelFrac(rect, x: 0.80, y: 0.62, latex: yBusDiagramLatex, size: 15.0),
+  _diagLabelFrac(rect, x: 0.73, y: 0.55, latex: yBusDiagramLatex, size: 14.0),
   ],
 
     // Voltages
