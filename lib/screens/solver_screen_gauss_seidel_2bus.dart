@@ -217,6 +217,8 @@ bool _anyEmpty() {
 for (final c in [
 _sBaseCtrl,
 _vBaseCtrl,
+_r12Ctrl,
+_x12Ctrl,
 _ypCtrl,
 _v1MagCtrl,
 _d1Ctrl,
