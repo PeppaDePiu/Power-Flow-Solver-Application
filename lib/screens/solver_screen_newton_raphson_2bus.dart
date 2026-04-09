@@ -2472,8 +2472,6 @@ r'\color{red}{\textbf{Iteration ' +
 iter.toString() +
 r': }(k=' +
 kPrev.toString() +
-r'\rightarrow ' +
-iter.toString() +
 r')}',
 );
 

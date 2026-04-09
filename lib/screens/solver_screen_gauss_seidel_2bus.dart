@@ -2192,8 +2192,6 @@ r'\textcolor{red}{\textbf{Iteration ' +
 '${row.k}' +
 r':}\ (k=' +
 '$kPrev' +
-r'\to ' +
-'${row.k}' +
 r')}'
 );
 

@@ -2668,8 +2668,6 @@ r'\textcolor{red}{\textbf{Iteration ' +
 '${it.k}' +
 r':}\ (k=' +
 '$kPrev' +
-r'\to ' +
-'${it.k}' +
 r')}',
 );
 lines.add(r'');
